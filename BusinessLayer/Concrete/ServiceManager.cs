@@ -20,12 +20,12 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Service t)
         {
-            throw new NotImplementedException();
+            _serviceDal.Delete(t);
         }
 
         public Service GetById(int id)
         {
-            throw new NotImplementedException();
+            return _serviceDal.GetById(id);
         }
 
         public List<Service> GetListAll()
