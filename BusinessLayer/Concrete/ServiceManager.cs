@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void Update(Service t)
         {
-            throw new NotImplementedException();
+            _serviceDal.Update(t);
         }
     }
 }
