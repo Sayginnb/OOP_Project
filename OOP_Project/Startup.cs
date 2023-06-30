@@ -32,6 +32,10 @@ namespace OOP_Project
             services.AddScoped<IServiceDal, EfServiceDal>();
             services.AddScoped<ITeamService, TeamManager>();
             services.AddScoped<ITeamDal, EfTeamDal>();
+            services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+            services.AddScoped<IImageService, ImageManager>();
+            services.AddScoped<IImageDal, EfImageDal>();
 
             services.AddDbContext<OOP_ProjectContext>();
             services.AddControllersWithViews();
