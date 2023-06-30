@@ -1,6 +1,12 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace OOP_Project.Controllers
 {
@@ -26,8 +32,21 @@ namespace OOP_Project.Controllers
         [HttpPost]
         public IActionResult AddTeam(Team team)
         {
-            _teamService.Insert(team);
-            return RedirectToAction("Index");
+            TeamValidator validationRules = new TeamValidator();
+            ValidationResult result = validationRules.Validate(team);
+            if (result.IsValid)
+            {
+                _teamService.Insert(team);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 }
