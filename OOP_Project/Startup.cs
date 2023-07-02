@@ -36,6 +36,8 @@ namespace OOP_Project
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
             services.AddScoped<IImageService, ImageManager>();
             services.AddScoped<IImageDal, EfImageDal>();
+            services.AddScoped<IAddressService, AddressManager>();
+            services.AddScoped<IAddressDal, EfAddressDal>();
 
             services.AddDbContext<OOP_ProjectContext>();
             services.AddControllersWithViews();
