@@ -38,6 +38,8 @@ namespace OOP_Project
             services.AddScoped<IImageDal, EfImageDal>();
             services.AddScoped<IAddressService, AddressManager>();
             services.AddScoped<IAddressDal, EfAddressDal>();
+            services.AddScoped<IContactService, ContactManager>();
+            services.AddScoped<IContactDal, EfContactDal>();
 
             services.AddDbContext<OOP_ProjectContext>();
             services.AddControllersWithViews();
