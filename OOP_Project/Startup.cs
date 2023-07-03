@@ -40,6 +40,8 @@ namespace OOP_Project
             services.AddScoped<IAddressDal, EfAddressDal>();
             services.AddScoped<IContactService, ContactManager>();
             services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<ISocialMediaService, SocialMediaManager>();
+            services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
             services.AddDbContext<OOP_ProjectContext>();
             services.AddControllersWithViews();
